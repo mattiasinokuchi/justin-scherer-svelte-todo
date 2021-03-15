@@ -1,6 +1,6 @@
 <!-- This file contain logic for the individual todo -->
 
-<svelte:options accessors={true} />
+<svelte:options accessors={true} />	<!-- App.svelte gets access and can change the properties below -->
 <script>
 	import { createEventDispatcher } from 'svelte';
 	export let completed = false;
