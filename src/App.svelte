@@ -1,4 +1,4 @@
-// This file contain logic for the whole application
+<!-- This file contain logic for the whole application -->
 
 <script>
     import Todo from './Todo.svelte';
@@ -16,8 +16,8 @@
         });
         newTodoText = '';
         todo.$on('remove', () => {
-            Todos.delete(todo);
-            todo.$destroy();
+            Todos.delete(todo); // reset text
+            todo.$destroy(); //prevent memory leak
         });
         Todos.add(todo);
     }
