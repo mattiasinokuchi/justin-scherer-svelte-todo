@@ -2,10 +2,10 @@
 
 <script>
 	import { createEventDispatcher } from 'svelte';
-	export let completed;
-	export let num;
-	export let description;
-	export let dueDate;
+	export let completed = false;
+	export let num = null;
+	export let description = null;
+	export let dueDate = null;
 
 	const dispatch = createEventDispatcher();
 </script>

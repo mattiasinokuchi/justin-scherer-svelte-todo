@@ -12,7 +12,7 @@
         const todo = new Todo({
             target: document.querySelector('#main'),
             props: {
-                num: Todo.size + 1,
+                num: currSize + 1,
                 dueDate: newTodoDate,
                 description: newTodoText
             }
