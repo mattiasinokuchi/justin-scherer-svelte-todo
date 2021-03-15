@@ -2,12 +2,11 @@
 
 <script>
     import Todo from './Todo.svelte';
+    import { completed, overdue } from './stores.js';
 
     let newTodoText = '';
     let newTodoDate = null;
     let currSize = 0;
-    let completed = false;
-    let overdue = false;
     const Todos = new Set();
 
     function addTodo() {
@@ -63,10 +62,10 @@
 <input type="text" bind:value={newTodoText}/>
 <input type="date" bind:value={newTodoDate} />
 <label>
-    <input type="checkbox" bind:checked={completed} on:change={handleFilter}/>
+    <input type="checkbox" bind:checked={$completed} on:change={handleFilter}/>
     Completed
 </label>
 <label>
-    <input type="checkbox" bind:checked={overdue} on:change={handleFilter}>
+    <input type="checkbox" bind:checked={$overdue} on:change={handleFilter}>
     Overdue
 </label>
