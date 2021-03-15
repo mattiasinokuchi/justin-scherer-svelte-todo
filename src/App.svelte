@@ -1,3 +1,5 @@
+// This file contain logic for the whole application
+
 <script>
     import Todo from './Todo.svelte';
 
