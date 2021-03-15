@@ -34,7 +34,7 @@
     function handleHide(item) {
         const currDate = Date.now();
         if (completed && overdue) {
-            item.hidden = !item.completed || new Date(item.dueDate).getTime() < currDate;
+            item.hidden = !item.completed || new Date(item.dueDate).getTime() > currDate;
             return;
         }
         if (completed) {
@@ -42,7 +42,7 @@
             return;
         }
         if (overdue) {
-            item.hidden = new Date(item.dueDate).getTime() < currDate;
+            item.hidden = new Date(item.dueDate).getTime() > currDate;
             return;
         }
         item.hidden = false;
