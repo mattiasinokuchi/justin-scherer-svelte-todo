@@ -20,3 +20,10 @@
         Todos.add(todo);
     }
 </script>
+
+<style></style>
+
+<h1>Todo Application!</h1>
+<ul id="main"></ul>
+<button on:click={addTodo}>Add Todo</button>
+<input type="text" bind:value={newTodoText}/>
