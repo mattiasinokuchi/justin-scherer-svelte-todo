@@ -1,4 +1,4 @@
-// This file contain logic for the individual todo
+<!-- This file contain logic for the individual todo -->
 
 <script>
 	import { createEventDispatcher } from 'svelte';
