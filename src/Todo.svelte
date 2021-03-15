@@ -5,6 +5,7 @@
 	export let completed;
 	export let num;
 	export let description;
+	export let dueDate;
 
 	const dispatch = createEventDispatcher();
 </script>
@@ -16,7 +17,7 @@
 </style>
 
 <li class:completed>
-	Task {num}: {description}
+	Task {num}: {description} Due on {dueDate}
 	<input type="checkbox" bind:checked={completed} />
 	<button on:click="{() => dispatch('remove', null)}">Remove</button>
 </li>
