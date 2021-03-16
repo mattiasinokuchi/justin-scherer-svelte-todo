@@ -1,32 +1,33 @@
 <!-- This file contain logic for the individual todo -->
 
-<svelte:options accessors={true} />	<!-- App.svelte gets access and can change the properties below -->
 <script>
+	import { overdue, completed } from './stores.js';
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	export let completed = false;
-	export let num = null;
-	export let description = null;
-	export let dueDate = null;
-	export let hidden = false;
+	export let num;
+	export let description;
+	export let dueDate;
 
+	let _completed = false;
 	const dispatch = createEventDispatcher();
 </script>
 
 <style>
-	.completed {
+	._completed {
 		text-decoration: line-through;
-	}
-	.hidden {
-		display: none;
 	}
 </style>
 
-{#if !hidden}
-	<li in:fade out:fade class:completed class:hidden>
+{#if
+	!(
+		($completed && !_completed) ||
+		($overdue && new Date(dueDate).getTime() >= Date.now())
+	)
+}
+	<li in:fade out:fade class:_completed>
 		Task {num}: {description} - Due on {dueDate}
-		<input type="checkbox" bind:checked={completed} />
+		<input type="checkbox" bind:checked={_completed} />
 		<button on:click="{() => dispatch('remove', null)}">Remove</button>
 	</li>	
 {/if}
